@@ -9,7 +9,7 @@ app.get("/user",(req,res)=>{
     
     prismaclient.user.findMany()
         .then(user => {
-            res.json(user)
+            res.json({user})
         })
         .catch(err => {
             res.status(500).json({err})
