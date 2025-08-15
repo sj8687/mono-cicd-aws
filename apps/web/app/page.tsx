@@ -1,15 +1,17 @@
-import { PrismaClient } from "db/client";
-
 export default async function Home() {
-  const prisma = new PrismaClient();
-  const users = await prisma.user.findMany();
+  const res = await fetch("http://localhost:8080/user", {
+    next: { revalidate: 60 } // revalidate every 60 seconds
+  });
+
+  if (!res.ok) {
+    throw new Error(`API error: ${res.status}`);
+  }
+
+  const data = await res.json();
+
   return (
     <div>
-      {JSON.stringify(users)}
+      {JSON.stringify(data)}
     </div>
   );
 }
-
-// export const revalidate = 60 // revalidate every 60 seconds
-// or
-// export const dynamic = 'force-dynamic'

@@ -10,9 +10,9 @@ COPY ./turbo.json ./turbo.json
 COPY ./apps/web ./apps/web
 
 RUN bun install
-
 RUN bun run db:generate
+RUN 
 
 EXPOSE 8080
 
-CMD ["bun","run","start:backend"]
+CMD ["bun","run","start:web"]
