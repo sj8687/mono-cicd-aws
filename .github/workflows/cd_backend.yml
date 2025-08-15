@@ -1,4 +1,4 @@
-name: Deploy the web
+name: Deploy the backend
 
 on:
   push:
@@ -23,11 +23,9 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./docker/Dockerfile.frontend
-          build-args: 
-              - DATABASE_URL=${{ secrets.DATABASE_URL }}
+          file: ./docker/Dockerfile.backend
           push: true
-          tags: shreyash8687/my-turborepo:${{ github.sha }}
+          tags: shreyash8687/my-turborepo-backend:${{ github.sha }}
 
       - name: Deploy VM
         run: echo "Add your VM deployment script here"
