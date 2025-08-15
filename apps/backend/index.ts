@@ -8,8 +8,8 @@ app.get("/user",(req,res)=>{
     console.log("bc");
     
     prismaclient.user.findMany()
-        .then(user => {
-            res.json({user})
+        .then(users => {
+            res.json({users})
         })
         .catch(err => {
             res.status(500).json({err})
