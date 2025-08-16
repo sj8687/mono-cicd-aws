@@ -25,7 +25,7 @@ jobs:
           context: .
           file: ./docker/Dockerfile.backend
           push: true
-          tags: shreyash8687/my-turborepo:${{ github.sha }}
+          tags: shreyash8687/my-turborepo-backend:${{ github.sha }}
 
       - name: Deploy VM
         run: echo "Add your VM deployment script here"
