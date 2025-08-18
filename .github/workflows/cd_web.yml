@@ -37,10 +37,10 @@ jobs:
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
           chmod 700 /home/runner/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@43.204.220.255 ""
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@43.204.220.255 "
           sudo docker stop my-turborepo-web || true &&
           sudo docker rm my-turborepo-web || true &&
-          sudo docker run --name my-turborepo-web -d -p 3000:3000 shreyash8687/my-turborepo-web:${{ github.sha }}"
+          sudo docker run --name my-turborepo-web -d -p 3000:3000 shreyash8687/my-turborepo-web:${{ github.sha }} "
 
 
 
