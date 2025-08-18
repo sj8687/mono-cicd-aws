@@ -33,7 +33,7 @@ jobs:
           push: true
           tags: shreyash8687/my-turborepo-web:${{ github.sha }}
           
-      - name: Deploy to the VM
+      - name: Deploy to the VM hiiit here
         run: |
           echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
           chmod 700 /home/runner/ssh_key
