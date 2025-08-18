@@ -1,13 +1,12 @@
-name: Deploy the web
+name: Deploy frontend
 
 on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 jobs:
-  build:
+  build-frontend:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,15 +19,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
+      - name: Build and push frontend
         uses: docker/build-push-action@v4
         with:
-          context: .
+          context: ./apps/web
           file: ./docker/Dockerfile.frontend
-          build-args: 
-              - DATABASE_URL=${{ secrets.DATABASE_URL }}
+          build-args: |
+            DATABASE_URL=${{ secrets.DATABASE_URL }}
           push: true
           tags: shreyash8687/my-turborepo-web:${{ github.sha }}
-
-      # - name: Deploy VM
-      #   run: echo "Add your VM deployment script here"
