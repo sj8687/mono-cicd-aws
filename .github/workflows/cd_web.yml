@@ -13,10 +13,9 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0   # 👈 full history le aao
-
+          fetch-depth: 0  
       - name: Verify files
-        run: ls -R docker   # 👈 check karo ki file exist hai
+        run: ls -R docker 
 
       - name: Docker login
         uses: docker/login-action@v2
@@ -28,8 +27,8 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: ./docker/Dockerfile.frontend   # 👈 backend jaisa hi likha
-          build-args: |
-            DATABASE_URL=${{ secrets.DATABASE_URL }}
+          file: ./docker/Dockerfile.frontend  
+          # build-args: |
+          #   DATABASE_URL=${{ secrets.DATABASE_URL }}
           push: true
           tags: shreyash8687/my-turborepo-web:${{ github.sha }}
