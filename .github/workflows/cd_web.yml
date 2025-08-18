@@ -40,7 +40,7 @@ jobs:
            username: ubuntu
            key: ${{ secrets.SSH_PRIVATE_KEY }}
            script: |
-             docker stop my-turborepo-web || true
-             docker rm my-turborepo-web || true
-             docker run --name my-turborepo-web -d -p 3000:3000 shreyash8687/my-turborepo-web:${{ github.sha }}
+            sudo docker stop my-turborepo-web || true
+            sudo docker rm my-turborepo-web || true
+            sudo docker run --name my-turborepo-web -d -p 3000:3000 shreyash8687/my-turborepo-web:${{ github.sha }}
 
