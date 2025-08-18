@@ -13,9 +13,6 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: List files
-        run: ls -R 
-
       - name: Docker login
         uses: docker/login-action@v2
         with:
