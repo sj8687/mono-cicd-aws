@@ -32,3 +32,9 @@ jobs:
           #   DATABASE_URL=${{ secrets.DATABASE_URL }}
           push: true
           tags: shreyash8687/my-turborepo-web:${{ github.sha }}
+          
+      - name: Deploy to the VM
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
+          chmod 700 /home/runner/ssh_key
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key root@43.204.220.255 -t "docker stop my-turborepo-web && docker run --name my-turborepo-web -d -p 3000:3000 shreyash8687/my-turborepo-web:${{ github.sha }}"
