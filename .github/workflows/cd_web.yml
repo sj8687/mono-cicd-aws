@@ -28,7 +28,7 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          file: docker/Dockerfile.frontend   # 👈 backend jaisa hi likha
+          file: ./docker/Dockerfile.frontend   # 👈 backend jaisa hi likha
           build-args: |
             DATABASE_URL=${{ secrets.DATABASE_URL }}
           push: true
