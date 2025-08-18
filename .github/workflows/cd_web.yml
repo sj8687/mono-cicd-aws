@@ -35,6 +35,6 @@ jobs:
           
       - name: Deploy to the VM hiiit here
         run: |
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
-          chmod 700 /home/runner/ssh_key
-          ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@43.204.220.255 -t "sudo docker run --name my-turborepo-web -d -p 3000:3000 shreyash8687/my-turborepo-web:${{ github.sha }}"
+          # echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
+          # chmod 700 /home/runner/ssh_key
+          ssh -o StrictHostKeyChecking=no -i "${{ secrets.SSH_PRIVATE_KEY }}" ubuntu@43.204.220.255 -t "sudo docker run --name my-turborepo-web -d -p 3000:3000 shreyash8687/my-turborepo-web:${{ github.sha }}"
