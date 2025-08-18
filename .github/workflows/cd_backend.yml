@@ -27,5 +27,13 @@ jobs:
           push: true
           tags: shreyash8687/my-turborepo-backend:${{ github.sha }}
 
-      - name: Deploy VM
-        run: echo "Add your VM deployment script here"
+      - name: Deploy Docker Container on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+           host: 43.204.220.255
+           username: ubuntu
+           key: ${{ secrets.SSH_PRIVATE_KEY }}
+           script: |
+            sudo docker stop my-turborepo-backend || true
+            sudo docker rm my-turborepo-backend || true
+            sudo docker run --name my-turborepo-backend -d -p 3000:3000 shreyash8687/my-turborepo-backend:${{ github.sha }}

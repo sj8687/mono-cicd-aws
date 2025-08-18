@@ -33,14 +33,24 @@ jobs:
           push: true
           tags: shreyash8687/my-turborepo-web:${{ github.sha }}
           
-      - name: Deploy Docker Container on EC2
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-           host: 43.204.220.255
-           username: ubuntu
-           key: ${{ secrets.SSH_PRIVATE_KEY }}
-           script: |
-            sudo docker stop my-turborepo-web || true
-            sudo docker rm my-turborepo-web || true
-            sudo docker run --name my-turborepo-web -d -p 3000:3000 shreyash8687/my-turborepo-web:${{ github.sha }}
+      - name: Deploy to the VM hiiit here
+        run: |
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" &> ~/ssh_key
+          chmod 700 /home/runner/ssh_key
+          ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@43.204.220.255"
+          sudo docker stop my-turborepo-web || true &&
+          sudo docker rm my-turborepo-web || true &&
+          sudo docker run --name my-turborepo-web -d -p 3000:3000 shreyash8687/my-turborepo-web:${{ github.sha }}"
 
+
+
+#  - name: Deploy Docker Container on EC2
+#         uses: appleboy/ssh-action@v1.0.3
+#         with:
+#            host: 43.204.220.255
+#            username: ubuntu
+#            key: ${{ secrets.SSH_PRIVATE_KEY }}
+#            script: |
+#             sudo docker stop my-turborepo-web || true
+#             sudo docker rm my-turborepo-web || true
+#             sudo docker run --name my-turborepo-web -d -p 3000:3000 shreyash8687/my-turborepo-web:${{ github.sha }}
