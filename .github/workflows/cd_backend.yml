@@ -36,4 +36,4 @@ jobs:
            script: |
             sudo docker stop my-turborepo-backend || true
             sudo docker rm my-turborepo-backend || true
-            sudo docker run --name my-turborepo-backend -d -p 3000:3000 shreyash8687/my-turborepo-backend:${{ github.sha }}
+            sudo docker run --name my-turborepo-backend -d -p 8080:8080 shreyash8687/my-turborepo-backend:${{ github.sha }}
