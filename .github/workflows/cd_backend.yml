@@ -30,7 +30,7 @@ jobs:
       - name: Deploy Docker Container on EC2
         uses: appleboy/ssh-action@v1.0.3
         with:
-           host: 43.204.220.255
+           host: 3.110.165.126
            username: ubuntu
            key: ${{ secrets.SSH_PRIVATE_KEY }}
            script: |
