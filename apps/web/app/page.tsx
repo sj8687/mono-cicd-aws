@@ -17,9 +17,9 @@ export default function Home() {
       <section id="about" style={{ maxWidth: 1200, margin: '0 auto', padding: '3rem 2rem 2rem', display: 'flex', alignItems: 'center', gap: '2.5rem', flexWrap: 'wrap' }}>
         <img src="/shree.jpg" alt="Profile" style={{ width: 180, height: 180, objectFit: 'cover', borderRadius: '50%', boxShadow: '0 4px 16px rgba(60,60,120,0.10)' }} />
         <div>
-          <h1 style={{ fontSize: '2.7rem', fontWeight: 700, color: '#3730a3', marginBottom: 10 }}>Shree</h1>
+          <h1 style={{ fontSize: '2.7rem', fontWeight: 700, color: '#3730a3', marginBottom: 10 }}>Shreayash(Sj)</h1>
           <p style={{ fontSize: '1.25rem', color: '#6366f1', marginBottom: 18 }}>
-            Hi, I'm Shree! I'm a passionate developer with a love for building beautiful and functional web applications. Welcome to my professional dashboard portfolio!
+            Hi There, I'm Shree! I'm a passionate developer with a love for building beautiful and functional web applications. Welcome to my professional dashboard portfolio!
           </p>
           <p style={{ fontSize: '1.1rem', color: '#444', marginBottom: 0 }}>
             I enjoy solving complex problems, learning new technologies, and collaborating with creative teams. My goal is to deliver impactful solutions and delightful user experiences.
